@@ -1,4 +1,4 @@
-function MyInfo() {
+function MainContent() {
     return (
         <section>
             <p>Personal information: Radyslav Grinchak 0936573341</p>
@@ -12,4 +12,4 @@ function MyInfo() {
     );
 }
 
-export default MyInfo;
+export default MainContent;
