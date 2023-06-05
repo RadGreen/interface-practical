@@ -6,7 +6,6 @@ function App() {
       <header className="App-header">
         <ul>
           <li>Trip to Italy</li>
-          <li>Trip to Germany</li>
           <li>Trip to Poland</li>
           <li>Trip to Chechz Republic</li>
           <li>Trip to Great Britain</li>
