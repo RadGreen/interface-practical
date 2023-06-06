@@ -13,9 +13,23 @@
         margin: 5px 0;
     }
 
-    &-Actions {
+    &-Button {
+        background-color: #E5E4E2;
+        border-radius: 0;
+        padding: 3px;
+        cursor: pointer;
+        margin-right: 5px;
+    }
+
+    &-Form {
+        margin-bottom: 5px;
+
         label {
-            margin-right: 15px;
+            margin-right: 5px;
+        }
+
+        input {
+            margin-left: 5px;
         }
     }
 }

@@ -1,20 +1,58 @@
-import {useState} from 'react'
+import { useState } from 'react';
 import './TouristRoute.style.scss'
 
 function TouristRoute(props) {
+    const [isEditFieldVisible, setIsEditFieldVisible] = useState(false);
+    const [editInputContent, setEditInputContent] = useState('');
 
-    
-    const [isSelectRouteClicked, setIsSelectRouteClicked] = useState(false);
-    const [isDeletRouteClicked, setIsDeletRouteClicked] = useState(false);
+    const { id, name, cost, startDate, endDate, deleteRoute, editRouteName } = props;
 
-    const { name, cost, startDate, endDate } = props;
-
-    function onSelectCheckboxClick() {
-        setIsSelectRouteClicked(!isSelectRouteClicked)
+    const onDeleteButtonClick = () => {
+        deleteRoute(id);
     }
 
-    function onDeleteCheckboxClick(){
-        setIsDeletRouteClicked(!isDeletRouteClicked) 
+    const onEditButtonClick = () => {
+        setIsEditFieldVisible(!isEditFieldVisible);
+    }
+
+    const onEditInputChange = (e) => {
+        setEditInputContent(e.target.value);
+    }
+
+    const onEditFormSubmit = (e) => {
+        e.preventDefault();
+
+        editRouteName(id, editInputContent);
+        setIsEditFieldVisible(false);
+    }
+
+    const renderEditField = () => {
+
+        if (!isEditFieldVisible) {
+            return null;
+        }
+
+        return (
+            <form
+                className='TouristRoute-Form'
+                onSubmit={onEditFormSubmit}
+            >
+                <label>
+                    Edit route name
+                    <input
+                        value={editInputContent}
+                        onChange={onEditInputChange}
+                        type="text"
+                    />
+                </label>
+                <button
+                    className='TouristRoute-Button'
+                    type='submit'
+                >
+                    Save new name
+                </button>
+            </form>
+        )
     }
 
     return (
@@ -23,23 +61,20 @@ function TouristRoute(props) {
         <p>Cost: {cost}</p>
         <p>Start date: {startDate}</p>
         <p>End date: {endDate}</p>
+        { renderEditField() }
         <div className='TouristRoute-Actions'>
-            <label>
-                Select the route
-                <input 
-                    type='checkbox'
-                    checked={isSelectRouteClicked}
-                    onClick={onSelectCheckboxClick} 
-                />
-            </label>
-            <label>
-                Delete the route
-                <input 
-                    type='checkbox' 
-                    checked={isDeletRouteClicked}
-                    onClick={onDeleteCheckboxClick} 
-                />
-            </label>
+            <button
+                className='TouristRoute-Button'
+                onClick={onDeleteButtonClick}
+            >
+                Delete Route
+            </button>
+            <button
+                className='TouristRoute-Button'
+                onClick={onEditButtonClick}
+            >
+                Edit Route
+            </button>
         </div>
         </li>
     );
