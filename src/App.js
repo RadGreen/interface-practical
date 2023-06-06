@@ -1,10 +1,10 @@
-import MainContent from './components/MainContent';
 import './App.scss'
+import TravelList from './components/TravelList';
 
 function App() {
   return (
     <div className="App">
-      <MainContent/>
+      <TravelList/>
     </div>
   );
 }
