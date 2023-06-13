@@ -1,11 +1,15 @@
 .TravelList {
-    list-style: none;
     padding: 0 10px;
     background-color: #E5E4E2;
     margin: 0;
     height: 100vh;
 
-    & h1 {
+    ul {
+        padding: 0;
+        list-style: none;
+    }
+
+    h1 {
         margin: 0;
         padding: 10px 0;
     }
