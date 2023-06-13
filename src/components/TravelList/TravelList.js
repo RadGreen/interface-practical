@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react'
 import TouristRoute from '../TouristRoute';
 import AuthForm from '../AuthForm';
-import { signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { signInWithEmailAndPassword, signOut, createUserWithEmailAndPassword  } from "firebase/auth";
 import { ref, set, onValue, remove, update } from "firebase/database";
 import { v4 as uuidv4 } from 'uuid';
 import { db, auth } from '../initFirebase';
@@ -75,6 +75,15 @@ function TravelList() {
         });
     }
 
+    const onRegister = (email, password) => {
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+        setUser(userCredential.user)
+        }).catch((error) => {
+            alert(error.message);
+        })
+    }
+
     const onSignOutButtonClick = () => {
         signOut(auth)
         setRoutes([]);
@@ -124,7 +133,10 @@ function TravelList() {
                 >
                     Sign Out
                 </button> 
-                : <AuthForm onLogin={onLogin} /> }
+                : <AuthForm 
+                    onLogin={onLogin}
+                    onRegister={onRegister}
+                /> }
             <ul>
                 { user && theTravel() }
             </ul>
