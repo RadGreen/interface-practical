@@ -1,0 +1,136 @@
+.section {
+    max-width: 1200px;
+    margin: 100px auto;
+    padding: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 30px;
+}
+
+.form h1 {
+    margin: 0;
+}
+
+.form input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.form button {
+    width: 100px;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    width: 300px;
+    height: 300px;
+    margin: 20px auto;
+}
+
+.cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    background-color: #eee;
+    cursor: pointer;
+    transition: all 250ms linear;
+}
+
+.cell:hover {
+    background-color: #ddd;
+    transform: scale(1.03);
+}
+
+.X {
+    color: #f44336;
+}
+
+.O {
+    color: #2196f3;
+}
+
+.status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.status h3 {
+    display: flex;
+    gap: 5px;
+    margin: 0;
+}
+
+.status p {
+    margin: 0;
+}
+
+.statusBtnWrap {
+    display: flex;
+    gap: 10px;
+}
+
+.status button {
+    width: 100px;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 250ms linear;
+}
+
+.status button:hover {
+transform: scale(1.03);
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.brokeWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 100px auto;
+}
+
+.brokeTitle {
+    text-align: center;
+    color: red;
+}
+
+.brokeBtn {
+    width: 130px;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 250ms linear;
+}
+
+.brokeBtn:hover {
+    transform: scale(1.01);
+}
